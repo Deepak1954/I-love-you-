@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love You ❤️</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .msg {
+    text-align: center;
+    color: white;
+    animation: pulse 2s infinite;
+    text-shadow: 0 0 12px rgba(255,255,255,.7);
+  }
+  .name {
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .text {
+    font-size: 40px;
+  }
+  @keyframes pulse {
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.1)}
+  }
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+  }
+  .heart::before,.heart::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:red;
+    border-radius:50%;
+  }
+  .heart::before{top:-10px;left:0}
+  .heart::after{left:-10px;top:0}
+  @keyframes float {
+    0%{opacity:1}
+    100%{transform:rotate(45deg) translateY(-800px) scale(.5);opacity:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="msg">
+  <div class="name">Deepak ❤️</div>
+  <div class="text">I Love You</div>
+</div>
+
+<script>
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
